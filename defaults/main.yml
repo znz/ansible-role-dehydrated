@@ -1,0 +1,12 @@
+---
+# defaults file for ansible-role-dehydrated
+dehydrated_packages:
+- dehydrated-apache2
+
+dehydrated_domains: |
+  example.org www.example.org
+  example.com www.example.com wiki.example.com
+
+dehydrated_contact_email: ""
+dehydrated_ocsp_must_staple: "yes" # must be string "yes" or "no" instead of yes (means True) or no (means False)
+dehydrated_key_algo: secp384r1 # rsa, prime256v1, or secp384r1

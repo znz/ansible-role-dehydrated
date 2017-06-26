@@ -1,0 +1,14 @@
+---
+# tasks file for ansible-role-dehydrated
+- name: "Install packages"
+  apt:
+    name: "{{ item }}"
+  with_items: "{{ dehydrated_packages }}"
+- name: "Create /etc/dehydrated/conf.d/local.sh"
+  template:
+    src: local.sh.j2
+    dest: /etc/dehydrated/conf.d/local.sh
+- name: "Create /etc/dehydrated/domains.txt"
+  template:
+    src: domains.txt.j2
+    dest: /etc/dehydrated/domains.txt
