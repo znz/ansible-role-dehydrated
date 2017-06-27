@@ -12,3 +12,15 @@
   template:
     src: domains.txt.j2
     dest: /etc/dehydrated/domains.txt
+
+- name: "Install local-dehydrated timer"
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/systemd/system/{{ item }}"
+    owner: root
+    group: root
+    mode: 0644
+  notify: Enable a timer for local-dehydrated
+  with_items:
+  - "local-dehydrated.service"
+  - "local-dehydrated.timer"

@@ -1,0 +1,6 @@
+[Unit]
+Description=dehydrated
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/dehydrated -c
+PrivateTmp=true
